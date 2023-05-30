@@ -165,14 +165,3 @@ select * from accident_data.uk_data where Light_Conditions="Daylight: Street lig
 
 
 
-
--- Accidents based on each MONTH
-update accident_data.uk_data
-set Accident_Date=replace(Accident_date, "/", "-")
-;
-
-alter table accident_data.uk_data rename column Date to Accident_Date;
-alter table accident_data.uk_data modify column Accident_Date varchar(20);
-
--- select extract(month from Trim(Accident_Date)) from accident_data.uk_data;
--- select date_format(cast(Trim(Accident_Date) as date), 'YYYY-MM_DD') from accident_data.uk_data;
